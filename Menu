@@ -1,0 +1,70 @@
+#include "stdafx.h"
+#include "conio.h"
+#include "stdlib.h"
+#include <iostream>
+
+using namespace std;
+
+
+void main()
+{float l,n1,n2,n3,area,promedio,mayor,a,b;
+ int op;
+	do{
+		cout<<"********MENU********"<<endl;
+		cout<<"1.-Area del cuadrado."<<endl;
+		cout<<"2.-Promedio de tres numeros."<<endl;
+		cout<<"3.-Mayor de dos numeros."<<endl;
+		cout<<"0.-Salir."<<endl;
+		cin>>op;
+		switch(op)
+		{
+		case 1: cout<<"Ingrese el lado del cuadrado:";
+				cin>>l;
+				area=l*l;
+				cout<<"El area del cuadrado es ==>"<<area;
+				cout<<endl;
+				system("pause");
+				system("cls");
+				break;
+		case 2: cout<<"Ingrese el primer numero:";
+				cin>>n1;
+				cout<<"Ingrese el segundo numero:";
+				cin>>n2;
+				cout<<"Ingrese el tercer numero:";
+				cin>>n3;
+				promedio=(n1+n2+n3)/3;
+				cout<<"El promdio de los 3 numeros es ==>"<<promedio;
+				cout<<endl;
+				system("pause");
+				system("cls");
+				break;
+		case 3: cout<<"Ingrese el primer numero:";
+				cin>>a;
+				cout<<"Ingrese el segundo numero:";
+				cin>>b;
+				if(a>b)
+				{cout<<"El numero mayor es ==>"<<a;
+				 cout<<endl;
+				 system("pause");
+				 system("cls");
+				}
+				else{
+					cout<<"El numero mayor es ==>"<<b;
+					cout<<endl;
+					system("pause");
+					system("cls");
+					}
+				break;
+		case 0: cout<<"Salir.";
+				break;
+		default:
+			cout<<"Opcion invalida!!";
+			system("pause");
+			system("cls");
+			break;
+		}
+	}while(op!=0);
+	getch();
+
+
+}
