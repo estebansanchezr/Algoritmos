@@ -1,0 +1,35 @@
+#include "stdafx.h"
+#include "conio.h"
+#include "stdlib.h"
+#include <iostream>
+
+using namespace std;
+
+void main()
+{int SM=1420,i=0,c=0;
+ float AFP=0.121, IVA=0.13,sueldo,prom;
+ char resp;
+	
+	
+	do
+	{cout<<"Ingrese el sueldo del trabajador: ";
+	 cin>>sueldo;
+		if (sueldo>15000)
+		   sueldo=sueldo-(sueldo*AFP)-(sueldo*IVA)-(sueldo*0.01);
+		else
+			if(sueldo>(SM*2))
+				sueldo=sueldo-sueldo*AFP-sueldo*IVA;
+			else
+				sueldo=sueldo-sueldo*AFP;
+		c=c+sueldo;
+		i++;
+		cout<<"Desea continuar?  (s para si) ";
+		cin>>resp;		
+	}while(resp=='s');
+
+	prom=c/i;
+	cout<<"El promedio del salario bruto de los trabajadores es==> "<<prom;
+	getch();
+
+}
+
