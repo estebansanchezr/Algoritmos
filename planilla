@@ -14,17 +14,23 @@ void main()
 		
 			for(i=0;i<n;i++)
 			{
-				cout<<"Ingrese el sueldo del empleado: ";
+				cout<<"Ingrese el sueldo del empleado "<<i+1<<": ";
 				cin>>sueldo;
-				if(sueldo>(sm*2))
+				if(sueldo>15000)
 				{
-					sueldo=sueldo-sueldo*AFP-sueldo*IVA;
+					sueldo=sueldo-sueldo*AFP-sueldo*IVA-sueldo*0.01;
 				}
 				else{
-					sueldo=sueldo-sueldo*AFP;
-				}
+						if(sueldo>(sm*2))
+						{
+							sueldo=sueldo-sueldo*AFP-sueldo*IVA;
+						}
+						else{
+							sueldo=sueldo-sueldo*AFP;
+							}
+					
+					}	
 				c=c+sueldo;
-
 			}
 			promedio=c/n;
 			cout<<"El promedio de los salarios netos de los empleados es: ==>"<<promedio;
@@ -32,4 +38,5 @@ void main()
 }
 		
 	
+
 
