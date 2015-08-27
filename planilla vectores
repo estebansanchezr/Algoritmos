@@ -1,0 +1,91 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#define Smin 1420
+
+using namespace std;
+
+void cargar (float SB[],int n);
+float salarioneto(float x);
+float IVA (float x);
+float AFP (float x);
+float Adic(float x);
+
+void main()
+{float SB[100],SN[100];
+ int n,i;
+
+ cout<<"Ingrese la cantidad de operarios"<<endl;
+ cin>>n;
+ cargar(SB,n);
+
+ for(i=0 ; i<n ; i++)
+ {
+    SN[i]=salarioneto(SB[i]);
+
+ }
+
+ cout<<"                    PLANILLA DE SUELDOS     "<<endl;
+ cout<<"   n\tSalario Bruto\t\tAFP\tIVA\tAdic\tSalario Neto\t"<<endl;
+    for(i=0 ; i<n ; i++)
+    {  cout<<"   "<<i+1<<"\t\t"<<SB[i]<<"\t\t"<<AFP(SB[i])<<"\t"<<IVA(SB[i])<<"\t"<<Adic(SB[i])<<"\t"<<SN[i]<<endl; 
+    }
+
+getch();
+}
+
+void cargar (float SB[],int n)
+{int i;
+    for(i=0 ; i<n ; i++)
+    {cout<<"Ingrese el salario bruto"<<endl;
+    cin>>SB[i];
+    }
+
+}
+
+float salarioneto(float x)
+{
+    if(x>15000)
+            { x=x-x*(0.121 + 0.01 +0.13);
+            }
+          else{
+             if(x>2*Smin)
+               {  x=x*(1-0.13-0.121);
+              }
+             else{
+               x=x*(1-0.121);
+             }
+          }
+return(x);
+}
+
+float IVA (float x)
+{float y;
+    
+             if(x>2*Smin)
+               {  y=x*0.13;
+               }
+             else{
+               y=0;
+             }
+	return(y);
+          
+}
+
+float AFP (float x)
+{ float y;
+
+y=x*0.121;
+return(y);
+}
+
+float Adic(float x)
+{float y;
+	if(x>15000)
+            { y=x*0.01;
+            }
+          else{
+			  y=0;
+		  }
+ return(y);
+}
