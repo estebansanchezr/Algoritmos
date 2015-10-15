@@ -1,0 +1,95 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include <string>
+#include "math.h"
+#define fil 20
+#define col 20
+
+using namespace std;
+
+struct telemento
+{int mat[fil][col];
+};
+
+void llenarauto(telemento M[fil][col], int n);
+void mostrar(telemento M[fil][col], int n);
+void sumarmatriz(telemento M[fil][col], int n);
+
+void main()
+{int a;
+	telemento matrix[fil][col];
+	int n;
+	cout<<"Ingrese el numero de filas: ";
+	cin>>n;
+	llenarauto(matrix,n);
+	mostrar(matrix,n);
+	sumarmatriz(matrix,n);
+	
+	
+	getch();
+}
+
+
+void llenarauto(telemento M[fil][col], int n)
+{int i,j,k,l;
+	for(i=0;i<n;i++)
+		{
+			for(j=0;j<n;j++)
+			{
+				for(k=0;k<n;k++)
+				{
+					for(l=0;l<n;l++)
+					{
+						cout<<"M["<<i<<"]["<<j<<"].mat["<<k<<"]["<<l<<"]= ";
+						cin>>M[i][j].mat[k][l];
+					}
+				}
+			}
+	}
+
+
+}
+
+void mostrar(telemento M[fil][col], int n)
+{int i,j,k,l;
+	for(i=0;i<n;i++)
+		{
+			for(j=0;j<n;j++)
+			{
+				for(k=0;k<n;k++)
+				{
+					for(l=0;l<n;l++)
+					{
+						cout<<M[i][j].mat[k][l]<<"\t";
+
+
+					}cout<<endl;
+				}cout<<"\t"<<endl;
+			}
+	}
+}
+
+
+void sumarmatriz(telemento M[fil][col], int n)
+{int i,j,k,l,s;
+	for(i=0;i<n;i++)
+		{
+			for(j=0;j<n;j++)
+			{s=0;
+			 s=s+M[i][j];
+			 cout<<"La suma de esta sub matriz es "<<s;
+			 cout<<endl;
+
+				for(k=0;k<n;k++)
+				{
+					for(l=0;l<n;l++)
+					{
+					
+					}
+				}
+			}
+	}
+	
+
+}
