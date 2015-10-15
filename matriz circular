@@ -1,0 +1,67 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <iomanip>
+#define MAX 20
+
+using namespace std;
+
+void mostrarMatriz(int A[MAX][MAX],int n,int m);
+void generar_caracol(int A[MAX][MAX],int n,int m);
+
+void main (void)
+{
+	int A[MAX][MAX],n;
+	cout<<"ingrese la dimension de la matriz cuadrada: ";
+	cin>>n;
+	generar_caracol(A,n,n);
+	cout<<"la matriz caracol es: "<<endl;
+	mostrarMatriz(A,n,n);
+	_getch();
+}
+void generar_caracol(int A[MAX][MAX],int n,int m)
+{
+	int izq,der,sup,inf,i,j,k;
+	izq = 0;		der = n-1;		sup = 0;		inf = n-1;
+	k = 1;
+	while(k <(n*n) )
+	{
+		for(j = izq; j< der; j++)
+		{
+			A[sup][j] = k;		k++;
+		}
+
+		for(i = sup; i<inf; i++)
+		{
+			A[i][der] = k;		k++;
+		}
+
+		for(j = der; j>izq; j--)
+		{
+			A[inf][j] = k;		k++;
+		}
+		
+		for(i = inf; i> sup; i--)
+		{
+			A[i][izq] = k;		k++;
+		}
+		izq++;		der--;		sup++;		inf--;
+
+	}
+	A[int(n/2)][int(n/2)] = k;
+}
+
+void mostrarMatriz(int A[MAX][MAX],int n,int m)
+{
+	int i,j;
+	for (i=0;i<n;i++)
+	{
+		for (j=0;j<m;j++)
+		{
+			cout<<setw(5)<<A[i][j];
+		}
+		cout<<endl<<endl;
+	}
+}
